@@ -1,0 +1,127 @@
+/* ------------------------- */
+/*        CONFIGURAÇÕES      */
+/* ------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #26063f;
+    font-family: 'Cinzel Decorative', serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ------------------------- */
+/*        ANIMAÇÕES          */
+/* ------------------------- */
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ------------------------- */
+/*         TEXTOS            */
+/* ------------------------- */
+
+.title-big {
+    font-size: 88px;
+    font-weight: 700;
+    margin: 0;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.subtitle {
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 30px;
+    animation: fadeInUp 1.6s ease forwards;
+    opacity: 0;
+}
+
+.description {
+    font-size: 32px;
+    font-weight: 400;
+    max-width: 650px;
+    line-height: 1.4;
+    margin-top: 30px;
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+}
+
+/* ------------------------- */
+/*        BOTÃO / TICKET     */
+/* ------------------------- */
+
+.ticket {
+    width: 260px;
+    margin-top: 40px;
+    cursor: pointer;
+    animation: fadeInUp 2.4s ease forwards;
+    opacity: 0;
+    filter: drop-shadow(0px 0px 12px rgba(0,0,0,0.6));
+    transition: transform .3s;
+}
+
+.ticket:hover {
+    transform: scale(1.07);
+}
+
+/* ------------------------- */
+/*        FOTO / PERSONA     */
+/* ------------------------- */
+
+.photo-container {
+    flex-shrink: 0;
+    animation: fadeInRight 2.8s ease forwards;
+    opacity: 0;
+}
+
+.photo {
+    width: 420px;
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 25px rgba(0,0,0,0.7));
+}
+
+/* ------------------------- */
+/*      RESPONSIVIDADE       */
+/* ------------------------- */
+
+@media (max-width: 1000px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 5%;
+    }
+
+    .photo {
+        width: 320px;
+        margin-top: 40px;
+    }
+
+    .title-big {
+        font-size: 64px;
+    }
+
+    .subtitle {
+        font-size: 32px;
+    }
+
+    .description {
+        font-size: 26px;
+    }
+}
