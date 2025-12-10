@@ -1,119 +1,121 @@
-/* ------------------------- */
-/*        CONFIGURAÇÕES      */
-/* ------------------------- */
+/* -------------------------------- */
+/*          CONFIGURAÇÕES           */
+/* -------------------------------- */
 
 body {
     margin: 0;
     padding: 0;
-    background: #26063f;
-    font-family: 'Cinzel Decorative', serif;
+    background-color: #26063f;
+    font-family: "Cinzel Decorative", serif;
     color: white;
     overflow-x: hidden;
 }
 
-.hero {
+.layout {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 80px 10%;
+    align-items: center;
     min-height: 100vh;
-    position: relative;
+    padding: 0 60px;
 }
 
-/* ------------------------- */
-/*        ANIMAÇÕES          */
-/* ------------------------- */
+/* -------------------------------- */
+/*             TEXTOS               */
+/* -------------------------------- */
 
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
+.text-box {
+    width: 55%;
 }
 
-@keyframes fadeInRight {
-    0% { opacity: 0; transform: translateX(60px); }
-    100% { opacity: 1; transform: translateX(0); }
-}
-
-/* ------------------------- */
-/*         TEXTOS            */
-/* ------------------------- */
-
-.title-big {
+.title {
     font-size: 88px;
     font-weight: 700;
     margin: 0;
-    animation: fadeInUp 1.2s ease forwards;
 }
 
 .subtitle {
     font-size: 38px;
     font-weight: 700;
-    margin-top: 30px;
-    animation: fadeInUp 1.6s ease forwards;
-    opacity: 0;
+    margin-top: 20px;
+    max-width: 90%;
 }
 
 .description {
     font-size: 32px;
-    font-weight: 400;
-    max-width: 650px;
+    margin-top: 20px;
+    max-width: 90%;
     line-height: 1.4;
-    margin-top: 30px;
-    animation: fadeInUp 2s ease forwards;
-    opacity: 0;
 }
 
-/* ------------------------- */
-/*        BOTÃO / TICKET     */
-/* ------------------------- */
+/* -------------------------------- */
+/*           ADMIT ONE              */
+/* -------------------------------- */
 
 .ticket {
     width: 260px;
     margin-top: 40px;
     cursor: pointer;
-    animation: fadeInUp 2.4s ease forwards;
-    opacity: 0;
-    filter: drop-shadow(0px 0px 12px rgba(0,0,0,0.6));
+    filter: drop-shadow(0px 0px 12px rgba(0,0,0,0.5));
     transition: transform .3s;
 }
 
 .ticket:hover {
-    transform: scale(1.07);
+    transform: scale(1.06);
 }
 
-/* ------------------------- */
-/*        FOTO / PERSONA     */
-/* ------------------------- */
+/* -------------------------------- */
+/*          FOTO À DIREITA          */
+/* -------------------------------- */
 
-.photo-container {
-    flex-shrink: 0;
-    animation: fadeInRight 2.8s ease forwards;
-    opacity: 0;
+.photo-box {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden; /* recorte */
 }
 
 .photo {
-    width: 420px;
-    object-fit: contain;
+    height: 90vh;
+    object-fit: cover;
+
+    /* rosto à ESQUERDA → empurramos para DIREITA */
+    object-position: left center;
+
+    /* controla quantos % do rosto aparece */
+    transform: translateX(35%);
+
     filter: drop-shadow(0px 0px 25px rgba(0,0,0,0.7));
 }
 
-/* ------------------------- */
-/*      RESPONSIVIDADE       */
-/* ------------------------- */
+/* -------------------------------- */
+/*          RESPONSIVIDADE          */
+/* -------------------------------- */
 
 @media (max-width: 1000px) {
-    .hero {
+
+    .layout {
         flex-direction: column;
         text-align: center;
-        padding: 50px 5%;
+        padding: 40px 20px;
     }
 
-    .photo {
-        width: 320px;
+    .text-box {
+        width: 100%;
+    }
+
+    .photo-box {
+        width: 100%;
+        justify-content: center;
         margin-top: 40px;
     }
 
-    .title-big {
+    .photo {
+        height: 60vh;
+        transform: translateX(0); /* no mobile mostra mais do rosto */
+    }
+
+    .title {
         font-size: 64px;
     }
 
