@@ -28,7 +28,7 @@ body {
 }
 
 .title-big {
-    font-size: 78px;
+    font-size: 88px;
     font-weight: 800;
     margin: 0;
     animation: fadeInUp 1.2s ease forwards;
@@ -53,7 +53,7 @@ body {
 /* -------------------------------- */
 
 ..ticket {
-    width: 60px;
+    width: 260px;
     margin-top: 40px;
     cursor: pointer;
     opacity: 0;
