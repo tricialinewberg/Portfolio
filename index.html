@@ -3,34 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trícia Linewberg – Portfolio</title>
+    <title>Trícia Linewberg — Portfolio</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <section class="hero">
-        <div class="content">
-            <h1 class="title-big">WELCOME<br>WELCOME TO MY PORTFOLIO</h1>
 
-            <h2 class="subtitle">
-                The Grandest Show of Strategy and Design on Land or By Screen.
-            </h2>
+    <div class="layout">
 
-            <p class="description">
-                Step inside, and you'll witness more purposeful design than most creatives 
-                reveal in a lifetime. You can decode the strategy in the pixels and buy 
-                a new vision for your product. But before you fully enter my world, 
-                remember: it’s all design, and design is the game.
-            </p>
+        <!-- ESQUERDA: TEXTO ANIMADO -->
+        <div class="text-box">
+            <h1 id="welcome" class="title"></h1>
+            <h2 id="subtitle" class="subtitle"></h2>
+            <p id="description" class="description"></p>
 
-            <img src="admit-one.png" alt="Admit One Ticket" class="ticket">
+            <img src="admit-one.png" class="ticket" alt="Admit One Ticket">
         </div>
 
-        <div class="photo-container">
+        <!-- DIREITA: FOTO -->
+        <div class="photo-box">
             <img src="tricia-mask-v2.png" alt="Trícia Mask" class="photo">
         </div>
-    </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
+
