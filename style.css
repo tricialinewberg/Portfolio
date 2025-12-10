@@ -1,11 +1,8 @@
-/* ---------------------- */
-/* GLOBAL */
-/* ---------------------- */
-
+/* GERAL */
 body {
     margin: 0;
     padding: 0;
-    background: #26063f;
+    background: #25063a;
     font-family: 'Cinzel Decorative', serif;
     color: white;
     overflow-x: hidden;
@@ -13,101 +10,61 @@ body {
 
 .hero {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 80px 8%;
+    align-items: center;
     min-height: 100vh;
+    padding: 80px 8%;
 }
 
-/* ---------------------- */
-/* TITLES */
-/* ---------------------- */
-
+/* TEXTOS */
 .title-big {
     font-size: 78px;
-    font-weight: 700;
     margin: 0;
+    font-weight: 700;
     opacity: 0;
+    transform: translateY(30px);
 }
 
 .subtitle {
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 700;
     margin-top: 25px;
     opacity: 0;
+    transform: translateY(30px);
+    max-width: 700px;
 }
 
 .description {
-    font-size: 32px;
+    font-size: 22px;
     line-height: 1.4;
     max-width: 700px;
     margin-top: 25px;
     opacity: 0;
+    transform: translateY(30px);
 }
 
-/* ---------------------- */
-/* TICKET */
-/* ---------------------- */
+/* FOTO (a gente deixa aqui mesmo que esteja quebrada) */
+.photo-container {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: .8s ease;
+}
+.photo {
+    width: 400px;
+    height: auto;
+}
 
+/* BOTÃO ADMIT ONE */
 .ticket {
     width: 260px;
     margin-top: 40px;
     opacity: 0;
     transform: translateY(20px);
-    transition: .6s;
-}
-
-/* ---------------------- */
-/* PHOTO */
-/* ---------------------- */
-
-.photo-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.photo {
-    width: 420px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0px 0px 25px rgba(0,0,0,0.7));
-}
-
-/* ---------------------- */
-/* ANIMATIONS */
-/* ---------------------- */
-
-.fade-up {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
     transition: .6s ease;
 }
 
-/* ---------------------- */
-/* RESPONSIVE */
-/* ---------------------- */
-
-@media (max-width: 1000px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .photo {
-        width: 300px;
-        margin-top: 40px;
-    }
-
-    .title-big {
-        font-size: 58px;
-    }
-
-    .subtitle {
-        font-size: 30px;
-    }
-
-    .description {
-        font-size: 24px;
-    }
+/* CLASSE QUE FAZ O ELEMENTO APARECER */
+.fade-in {
+    opacity: 1 !important;
+    transform: translate(0,0) !important;
 }
