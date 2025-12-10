@@ -1,52 +1,22 @@
-// FRASES DO TÍTULO
-const w1 = "WELCOME";
-const w2 = "WELCOME TO";
-const w3 = "MY PORTFOLIO";
-
-// SUBTÍTULO
-const text2 = "The Grandest Show of Strategy and Design on Land or By Screen.";
-
-// DESCRIÇÃO
-const text3 = "Step inside, and you'll witness more purposeful design than most creatives reveal in a lifetime. You can decode the strategy in the pixels and buy a new vision for your product. But before you fully enter my world, remember: it’s all design, and design is the game.";
-
-function typeWriter(element, text, speed, callback) {
-    let i = 0;
-    function typing() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
-        } else if (callback) {
-            callback();
-        }
-    }
-    typing();
+function show(element, delay) {
+    setTimeout(() => {
+        element.classList.add("fade-up");
+    }, delay);
 }
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // 1 — WELCOME
-    typeWriter(document.getElementById("w1"), w1, 60, () => {
+    const l1 = document.getElementById("line1");
+    const l2 = document.getElementById("line2");
+    const l3 = document.getElementById("line3");
+    const subtitle = document.getElementById("subtitle");
+    const desc = document.getElementById("desc");
+    const ticket = document.getElementById("ticket");
 
-        // 2 — WELCOME TO
-        typeWriter(document.getElementById("w2"), w2, 60, () => {
-
-            // 3 — MY PORTFOLIO
-            typeWriter(document.getElementById("w3"), w3, 60, () => {
-
-                // SUBTÍTULO
-                typeWriter(document.getElementById("subtitle"), text2, 45, () => {
-
-                    // DESCRIÇÃO
-                    typeWriter(document.getElementById("description"), text3, 30, () => {
-
-                        // ADMIT ONE APARECE SÓ AGORA
-                        const ticket = document.querySelector(".ticket");
-                        ticket.style.opacity = "1";
-                        ticket.style.transform = "translateY(0)";
-                    });
-                });
-            });
-        });
-    });
-};
+    show(l1, 300);      // WELCOME
+    show(l2, 1300);     // WELCOME TO
+    show(l3, 2300);     // MY PORTFOLIO
+    show(subtitle, 3300);
+    show(desc, 4200);
+    show(ticket, 5500); // aparece SÓ no final
+});
