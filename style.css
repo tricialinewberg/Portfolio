@@ -1,132 +1,113 @@
-/* -------------------------------- */
-/*          CONFIGURAÇÕES           */
-/* -------------------------------- */
+/* ---------------------- */
+/* GLOBAL */
+/* ---------------------- */
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #26063f;
-    font-family: "Cinzel Decorative", serif;
+    background: #26063f;
+    font-family: 'Cinzel Decorative', serif;
     color: white;
     overflow-x: hidden;
 }
 
-.layout {
+.hero {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 80px 8%;
     min-height: 100vh;
-    padding: 0 60px;
 }
 
-/* -------------------------------- */
-/*             TEXTOS               */
-/* -------------------------------- */
-
-.text-box {
-    width: 55%;
-}
+/* ---------------------- */
+/* TITLES */
+/* ---------------------- */
 
 .title-big {
-    font-size: 88px;
-    font-weight: 800;
+    font-size: 78px;
+    font-weight: 700;
     margin: 0;
-    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
 }
 
 .subtitle {
     font-size: 38px;
     font-weight: 700;
-    margin-top: 20px;
-    max-width: 90%;
+    margin-top: 25px;
+    opacity: 0;
 }
 
 .description {
     font-size: 32px;
-    margin-top: 20px;
-    max-width: 90%;
     line-height: 1.4;
+    max-width: 700px;
+    margin-top: 25px;
+    opacity: 0;
 }
 
-/* -------------------------------- */
-/*           ADMIT ONE              */
-/* -------------------------------- */
+/* ---------------------- */
+/* TICKET */
+/* ---------------------- */
 
-..ticket {
+.ticket {
     width: 260px;
     margin-top: 40px;
-    cursor: pointer;
     opacity: 0;
-    animation: fadeInUp 10.6s ease forwards; /* aparece bem depois */
-    filter: drop-shadow(0px 0px 12px rgba(0,0,0,0.6));
-    transition: transform .3s;
+    transform: translateY(20px);
+    transition: .6s;
 }
 
-.ticket:hover {
-    transform: scale(1.06);
-}
+/* ---------------------- */
+/* PHOTO */
+/* ---------------------- */
 
-/* -------------------------------- */
-/*          FOTO À DIREITA          */
-/* -------------------------------- */
-
-.photo-box {
-    width: 45%;
+.photo-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    overflow: hidden; /* recorte */
 }
 
 .photo {
-    height: 90vh;
-    object-fit: cover;
-
-    /* rosto à ESQUERDA → empurramos para DIREITA */
-    object-position: left center;
-
-    /* controla quantos % do rosto aparece */
-    transform: translateX(35%);
-
+    width: 420px;
+    height: auto;
+    object-fit: contain;
     filter: drop-shadow(0px 0px 25px rgba(0,0,0,0.7));
 }
 
-/* -------------------------------- */
-/*          RESPONSIVIDADE          */
-/* -------------------------------- */
+/* ---------------------- */
+/* ANIMATIONS */
+/* ---------------------- */
+
+.fade-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: .6s ease;
+}
+
+/* ---------------------- */
+/* RESPONSIVE */
+/* ---------------------- */
 
 @media (max-width: 1000px) {
-
-    .layout {
+    .hero {
         flex-direction: column;
         text-align: center;
-        padding: 40px 20px;
-    }
-
-    .text-box {
-        width: 100%;
-    }
-
-    .photo-box {
-        width: 100%;
-        justify-content: center;
-        margin-top: 40px;
     }
 
     .photo {
-        height: 60vh;
-        transform: translateX(0); /* no mobile mostra mais do rosto */
+        width: 300px;
+        margin-top: 40px;
     }
 
-    .title {
-        font-size: 64px;
+    .title-big {
+        font-size: 58px;
     }
 
     .subtitle {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .description {
-        font-size: 26px;
+        font-size: 24px;
     }
 }
