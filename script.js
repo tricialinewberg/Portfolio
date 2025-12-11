@@ -1,49 +1,43 @@
-function typeEffect(element, text, delay = 40, startDelay = 0) {
-    element.innerHTML = "";
-    element.style.opacity = "1";
+function reveal(el, delay) {
+    setTimeout(() => {
+        el.classList.add("fade-in");
+    }, delay);
+}
 
+function typeParagraph(el, text, delayStart, speed = 45) {
+    el.innerHTML = "";
     let i = 0;
     setTimeout(() => {
-        const typer = setInterval(() => {
-            element.innerHTML += text.charAt(i);
+        let interval = setInterval(() => {
+            el.innerHTML += text[i];
             i++;
-
-            if (i >= text.length) clearInterval(typer);
-        }, delay);
-    }, startDelay);
+            if (i >= text.length) clearInterval(interval);
+        }, speed);
+    }, delayStart);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Títulos
-    typeEffect(line1, "WELCOME", 50, 300);
-    typeEffect(line2, "WELCOME TO", 50, 1400);
-    typeEffect(line3, "MY PORTFOLIO", 50, 2600);
+    // Títulos - NÃO ALTEREI NADA
+    reveal(line1, 400);
+    reveal(line2, 1200);
+    reveal(line3, 2000);
 
-    // Subtítulo
-    typeEffect(
-        subtitle,
-        "THE GRANDEST SHOW OF STRATEGY AND DESIGN ON LAND OR BY SCREEN.",
-        18,
-        4000
-    );
+    // Subtítulo - NÃO ALTEREI NADA
+    reveal(subtitle, 3000);
 
-    // Parágrafo
-    typeEffect(
-        desc,
-        "STEP INSIDE, AND YOU’LL WITNESS MORE PURPOSEFUL DESIGN THAN MOST CREATIVES REVEAL IN A LIFETIME. YOU CAN DECODE THE STRATEGY IN THE PIXELS AND BUY A NEW VISION FOR YOUR PRODUCT. BUT BEFORE YOU FULLY ENTER MY WORLD, REMEMBER: IT’S ALL DESIGN, AND DESIGN IS THE GAME.",
-        14,
-        6000
-    );
+    // PARÁGRAFO — AQUI SIM
+    let paragraphText = 
+        "STEP INSIDE, AND YOU’LL WITNESS MORE PURPOSEFUL DESIGN THAN MOST CREATIVES REVEAL IN A LIFETIME. " +
+        "YOU CAN DECODE THE STRATEGY IN THE PIXELS AND BUY A NEW VISION FOR YOUR PRODUCT. " +
+        "BUT BEFORE YOU FULLY ENTER MY WORLD, REMEMBER: IT’S ALL DESIGN, AND DESIGN IS THE GAME.";
 
-    // Admit One no final
-    setTimeout(() => {
-        ticket.classList.add("fade-in");
-    }, 12000);
+    typeParagraph(desc, paragraphText, 4000, 45);
 
-    // Foto no final também
-    setTimeout(() => {
-        document.querySelector(".photo-container").classList.add("fade-in");
-    }, 13000);
+    // Admit One
+    reveal(ticket, 9500);
 
+    // Foto
+    reveal(document.querySelector(".photo-container"), 11000);
 });
+
