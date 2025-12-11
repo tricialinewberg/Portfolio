@@ -1,38 +1,39 @@
+// efeito normal (título, subtítulo e foto)
 function reveal(el, delay) {
     setTimeout(() => {
         el.classList.add("fade-in");
     }, delay);
 }
 
-// efeito de “leitura suave” só no parágrafo
-function typeParagraph(element, text, speed, delayStart = 0) {
-    element.textContent = "";
+// efeito de leitura suave SOMENTE no parágrafo
+function typeParagraph(element, speed, delayStart = 0) {
+
+    const original = element.innerText.trim(); // texto original
+    element.innerText = "";                    // limpa depois
     let i = 0;
 
     setTimeout(() => {
         const interval = setInterval(() => {
-            element.textContent += text[i];
+            element.innerText += original[i];
             i++;
-            if (i === text.length) clearInterval(interval);
+            if (i >= original.length) clearInterval(interval);
         }, speed);
     }, delayStart);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // restaura seu fluxo perfeito anterior:
-    reveal(line1, 400);     // WELCOME
-    reveal(line2, 1200);    // WELCOME TO
-    reveal(line3, 2000);    // MY PORTFOLIO
-    reveal(subtitle, 3000); // perfeito – NÃO TOQUEI
-    reveal(ticket, 5600);   // Admit One no final
+    // mantém seu timing perfeito original
+    reveal(line1, 400);      // WELCOME
+    reveal(line2, 1200);     // WELCOME TO
+    reveal(line3, 2000);     // MY PORTFOLIO
+    reveal(subtitle, 3000);  // perfeito como antes
+    reveal(ticket, 5600);    // botão no final
     reveal(document.querySelector(".photo-container"), 6500);
 
-    // aplica efeito de leitura suave no parágrafo
+    // aplica leitura suave no parágrafo
     const desc = document.getElementById("desc");
-    const text = desc.innerText;
 
-    // velocidade mais lenta (80ms por letra)
-    // começa depois do subtítulo aparecer
-    typeParagraph(desc, text, 80, 3300);
+    // inicia a digitação APÓS o subtítulo aparecer
+    typeParagraph(desc, 55, 3500);
 });
