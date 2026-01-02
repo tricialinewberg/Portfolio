@@ -19,8 +19,6 @@ body {
     font-size: 60px;
     margin: 0;
     font-weight: 700;
-    min-height: 1.2em;
-    display: block;
 }
 
 .subtitle {
@@ -28,29 +26,28 @@ body {
     font-weight: 400;
     margin-top: 20px;
     max-width: 800px;
-    min-height: 1.2em;
-    display: block;
 }
 
-.ticket {
-    width: 260px;
-    margin-top: 40px;
+/* Estilo para cada palavra que o JS vai criar */
+.word {
+    display: inline-block;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
+    animation: fadeInWord 0.8s forwards;
+    margin-right: 12px;
 }
 
-.photo-container {
+@keyframes fadeInWord {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ticket, .photo-container {
     opacity: 0;
-    transition: 1.5s ease;
-}
-
-.photo { 
-    width: 400px; 
-    height: auto; 
+    transition: opacity 1.5s ease;
 }
 
 .reveal-final {
     opacity: 1 !important;
-    transform: translate(0,0) !important;
 }
+
+.photo { width: 400px; height: auto; }
