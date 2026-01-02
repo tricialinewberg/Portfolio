@@ -19,14 +19,18 @@ body {
 /* TEXTOS COM EFEITO DE REVELAÇÃO */
 .title-big, .subtitle, .description {
     opacity: 0;
+    /* Isso aqui é o segredo: faz a máscara colar no texto */
+    display: table; 
     clip-path: inset(0 100% 0 0);
     transition: clip-path 2s ease-in-out, opacity 0.5s ease;
+    white-space: normal;
 }
 
 .title-big {
     font-size: 78px;
     margin: 0;
     font-weight: 700;
+    line-height: 1.1;
 }
 
 .subtitle {
@@ -44,26 +48,13 @@ body {
     margin-top: 25px;
 }
 
-/* FOTO E BOTÃO */
-.photo-container, .ticket {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.5s ease, transform 1.5s ease;
-}
-
-.photo {
-    width: 400px;
-    height: auto;
-}
-
-.ticket {
-    width: 260px;
-    margin-top: 40px;
-}
-
-/* ATIVAÇÃO DA ANIMAÇÃO */
+/* CLASSE QUE ATIVA A LEITURA (Mantenha assim) */
 .fade-in {
     opacity: 1 !important;
     transform: translate(0,0) !important;
     clip-path: inset(0 0 0 0) !important;
+}
+/* Faz a descrição ler mais devagar que o título */
+#desc.fade-in {
+    transition: clip-path 4s ease-in-out, opacity 0.5s ease;
 }
