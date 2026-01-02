@@ -1,4 +1,3 @@
-/* GERAL */
 body {
     margin: 0;
     padding: 0;
@@ -16,45 +15,38 @@ body {
     padding: 80px 8%;
 }
 
-/* TEXTOS COM EFEITO DE REVELAÇÃO */
-.title-big, .subtitle, .description {
-    opacity: 0;
-    /* Isso aqui é o segredo: faz a máscara colar no texto */
-    display: table; 
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 2s ease-in-out, opacity 0.5s ease;
-    white-space: normal;
-}
-
 .title-big {
-    font-size: 78px;
+    font-size: 60px; /* Ajustei um pouco o tamanho para não quebrar */
     margin: 0;
     font-weight: 700;
-    line-height: 1.1;
+    min-height: 1.2em; /* Evita que o layout pule enquanto escreve */
 }
 
 .subtitle {
-    font-size: 32px;
-    font-weight: 700;
-    margin-top: 25px;
-    max-width: 700px;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 20px;
+    max-width: 800px;
+    min-height: 1.2em;
 }
 
-.description {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    line-height: 1.55;
-    max-width: 700px;
-    margin-top: 25px;
+.ticket {
+    width: 260px;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-/* CLASSE QUE ATIVA A LEITURA (Mantenha assim) */
-.fade-in {
+.photo-container {
+    opacity: 0;
+    transition: 1.5s ease;
+}
+
+.photo { width: 400px; height: auto; }
+
+/* Classe para o botão e foto aparecerem no final */
+.reveal-final {
     opacity: 1 !important;
     transform: translate(0,0) !important;
-    clip-path: inset(0 0 0 0) !important;
-}
-/* Faz a descrição ler mais devagar que o título */
-#desc.fade-in {
-    transition: clip-path 4s ease-in-out, opacity 0.5s ease;
 }
