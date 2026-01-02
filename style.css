@@ -16,11 +16,10 @@ body {
     padding: 80px 8%;
 }
 
-/* EFEITO DE LEITURA (MÁSCARA) */
+/* TEXTOS COM EFEITO DE REVELAÇÃO */
 .title-big, .subtitle, .description {
     opacity: 0;
-    /* Faz o texto começar escondido da direita para a esquerda */
-    clip-path: inset(0 100% 0 0); 
+    clip-path: inset(0 100% 0 0);
     transition: clip-path 2s ease-in-out, opacity 0.5s ease;
 }
 
@@ -45,7 +44,7 @@ body {
     margin-top: 25px;
 }
 
-/* FOTO E BOTÃO (Aparecem com movimento) */
+/* FOTO E BOTÃO */
 .photo-container, .ticket {
     opacity: 0;
     transform: translateY(20px);
@@ -62,9 +61,9 @@ body {
     margin-top: 40px;
 }
 
-/* CLASSE QUE ATIVA A LEITURA */
+/* ATIVAÇÃO DA ANIMAÇÃO */
 .fade-in {
     opacity: 1 !important;
     transform: translate(0,0) !important;
-    clip-path: inset(0 0 0 0) !important; /* Isso faz o texto ser "lido" */
+    clip-path: inset(0 0 0 0) !important;
 }
