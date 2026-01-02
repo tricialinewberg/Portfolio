@@ -16,13 +16,16 @@ body {
     padding: 80px 8%;
 }
 
-/* TEXTOS */
+/* TEXTOS COM EFEITO DE LEITURA */
 .title-big {
     font-size: 78px;
     margin: 0;
     font-weight: 700;
     opacity: 0;
-    transform: translateY(30px);
+    display: block;
+    /* Efeito de revelar da esquerda para direita */
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 2s ease-in-out, opacity 0.5s ease;
 }
 
 .subtitle {
@@ -30,8 +33,11 @@ body {
     font-weight: 700;
     margin-top: 25px;
     opacity: 0;
-    transform: translateY(30px);
     max-width: 700px;
+    display: block;
+    clip-path: inset(0 100% 0 0);
+    /* Delay de 1s para começar depois do nome */
+    transition: clip-path 2s ease-in-out 1s, opacity 0.5s ease 1s;
 }
 
 .description {
@@ -41,14 +47,18 @@ body {
     max-width: 700px;
     margin-top: 25px;
     opacity: 0;
+    /* Aparece com fade suave após 2.5s */
+    transition: opacity 1.5s ease 2.5s;
 }
 
-/* FOTO (a gente deixa aqui mesmo que esteja quebrada) */
+/* FOTO */
 .photo-container {
     opacity: 0;
     transform: translateX(30px);
-    transition: .8s ease;
+    /* Aparece junto com a descrição */
+    transition: opacity 1.5s ease 3s, transform 1.5s ease 3s;
 }
+
 .photo {
     width: 400px;
     height: auto;
@@ -60,11 +70,13 @@ body {
     margin-top: 40px;
     opacity: 0;
     transform: translateY(20px);
-    transition: .6s ease;
+    /* Último elemento a aparecer */
+    transition: opacity 1s ease 4s, transform 1s ease 4s;
 }
 
-/* CLASSE QUE FAZ O ELEMENTO APARECER */
+/* CLASSE QUE ATIVA AS ANIMAÇÕES (ACIONADA PELO SEU JS) */
 .fade-in {
     opacity: 1 !important;
     transform: translate(0,0) !important;
+    clip-path: inset(0 0 0 0) !important;
 }
