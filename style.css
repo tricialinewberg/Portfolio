@@ -16,28 +16,25 @@ body {
     padding: 80px 8%;
 }
 
-/* TEXTOS COM EFEITO DE LEITURA */
+/* EFEITO DE LEITURA (MÁSCARA) */
+.title-big, .subtitle, .description {
+    opacity: 0;
+    /* Faz o texto começar escondido da direita para a esquerda */
+    clip-path: inset(0 100% 0 0); 
+    transition: clip-path 2s ease-in-out, opacity 0.5s ease;
+}
+
 .title-big {
     font-size: 78px;
     margin: 0;
     font-weight: 700;
-    opacity: 0;
-    display: block;
-    /* Efeito de revelar da esquerda para direita */
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 2s ease-in-out, opacity 0.5s ease;
 }
 
 .subtitle {
     font-size: 32px;
     font-weight: 700;
     margin-top: 25px;
-    opacity: 0;
     max-width: 700px;
-    display: block;
-    clip-path: inset(0 100% 0 0);
-    /* Delay de 1s para começar depois do nome */
-    transition: clip-path 2s ease-in-out 1s, opacity 0.5s ease 1s;
 }
 
 .description {
@@ -46,17 +43,13 @@ body {
     line-height: 1.55;
     max-width: 700px;
     margin-top: 25px;
-    opacity: 0;
-    /* Aparece com fade suave após 2.5s */
-    transition: opacity 1.5s ease 2.5s;
 }
 
-/* FOTO */
-.photo-container {
+/* FOTO E BOTÃO (Aparecem com movimento) */
+.photo-container, .ticket {
     opacity: 0;
-    transform: translateX(30px);
-    /* Aparece junto com a descrição */
-    transition: opacity 1.5s ease 3s, transform 1.5s ease 3s;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .photo {
@@ -64,19 +57,14 @@ body {
     height: auto;
 }
 
-/* BOTÃO ADMIT ONE */
 .ticket {
     width: 260px;
     margin-top: 40px;
-    opacity: 0;
-    transform: translateY(20px);
-    /* Último elemento a aparecer */
-    transition: opacity 1s ease 4s, transform 1s ease 4s;
 }
 
-/* CLASSE QUE ATIVA AS ANIMAÇÕES (ACIONADA PELO SEU JS) */
+/* CLASSE QUE ATIVA A LEITURA */
 .fade-in {
     opacity: 1 !important;
     transform: translate(0,0) !important;
-    clip-path: inset(0 0 0 0) !important;
+    clip-path: inset(0 0 0 0) !important; /* Isso faz o texto ser "lido" */
 }
