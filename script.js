@@ -1,28 +1,29 @@
-async function typeWords(elementId, text, speed = 300) {
+async function typeWords(elementId, text, speed = 400) {
     const element = document.getElementById(elementId);
-    const words = text.split(" "); // Quebra a frase em palavras
+    const words = text.split(" ");
     
     for (let word of words) {
-        element.innerHTML += word + " "; // Adiciona a palavra + espaço
-        // Espera o tempo definido antes de ir para a próxima palavra
+        const span = document.createElement("span");
+        span.textContent = word;
+        span.className = "word";
+        element.appendChild(span);
+        
+        // Espera o tempo da próxima palavra
         await new Promise(resolve => setTimeout(resolve, speed));
     }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
     // 1. Escreve o Título
-    await typeWords("title-line", "WELCOME TO MY PORTFOLIO", 400);
+    await typeWords("title-line", "WELCOME TO MY PORTFOLIO", 500);
     
     // 2. Espera um pouco e escreve o Subtítulo
-    await new Promise(resolve => setTimeout(resolve, 500));
-    await typeWords("subtitle-line", "THE GRANDEST SHOW OF STRATEGY AND DESIGN ON LAND OR BY SCREEN.", 250);
+    await new Promise(resolve => setTimeout(resolve, 300));
+    await typeWords("subtitle-line", "THE GRANDEST SHOW OF STRATEGY AND DESIGN ON LAND OR BY SCREEN.", 300);
 
     // 3. Mostra o Botão e a Foto
-    const ticket = document.getElementById("ticket");
-    const photo = document.querySelector(".photo-container");
-    
     setTimeout(() => {
-        ticket.classList.add("reveal-final");
-        photo.classList.add("reveal-final");
+        document.getElementById("ticket").classList.add("reveal-final");
+        document.querySelector(".photo-container").classList.add("reveal-final");
     }, 500);
 });
