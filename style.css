@@ -16,10 +16,11 @@ body {
 }
 
 .title-big {
-    font-size: 60px; /* Ajustei um pouco o tamanho para não quebrar */
+    font-size: 60px;
     margin: 0;
     font-weight: 700;
-    min-height: 1.2em; /* Evita que o layout pule enquanto escreve */
+    min-height: 1.2em;
+    display: block;
 }
 
 .subtitle {
@@ -28,6 +29,7 @@ body {
     margin-top: 20px;
     max-width: 800px;
     min-height: 1.2em;
+    display: block;
 }
 
 .ticket {
@@ -43,9 +45,11 @@ body {
     transition: 1.5s ease;
 }
 
-.photo { width: 400px; height: auto; }
+.photo { 
+    width: 400px; 
+    height: auto; 
+}
 
-/* Classe para o botão e foto aparecerem no final */
 .reveal-final {
     opacity: 1 !important;
     transform: translate(0,0) !important;
