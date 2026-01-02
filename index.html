@@ -20,28 +20,66 @@
             min-height: 100vh;
             padding: 0 8%;
         }
-        .title-big { font-size: 60px; margin: 0; }
-        .subtitle { font-size: 28px; margin-top: 20px; max-width: 600px; }
+        .content { flex: 1; }
+        
+        /* Estilos das Linhas de Título */
+        .title-line { 
+            font-size: 65px; 
+            margin: 0; 
+            line-height: 1.1; 
+            display: block; 
+            min-height: 75px; 
+        }
+        .subtitle { 
+            font-size: 24px; 
+            margin-top: 30px; 
+            max-width: 600px; 
+            line-height: 1.4; 
+            color: #e0e0e0; 
+            min-height: 50px; 
+        }
+        
+        /* Efeito de Fade nas palavras */
         .word {
             display: inline-block;
             opacity: 0;
-            animation: fadeIn 0.8s forwards;
-            margin-right: 12px;
+            transform: translateY(10px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            margin-right: 15px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .word.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .ticket, .photo-container { opacity: 0; transition: 2s; }
-        .reveal { opacity: 1 !important; }
-        .photo { width: 400px; height: auto; }
+
+        /* Foto e Ticket */
+        .ticket, .photo-container { 
+            opacity: 0; 
+            transform: translateY(20px);
+            transition: all 2s ease; 
+        }
+        .reveal { 
+            opacity: 1 !important; 
+            transform: translateY(0) !important;
+        }
+        .photo { width: 450px; height: auto; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; padding: 50px 5%; }
+            .photo { width: 280px; margin-top: 40px; }
+            .title-line { font-size: 35px; min-height: auto; }
+        }
     </style>
 </head>
 <body>
     <section class="hero">
         <div class="content">
-            <h1 id="title-line" class="title-big"></h1>
+            <h1 id="line1" class="title-line"></h1>
+            <h1 id="line2" class="title-line"></h1>
+            <h1 id="line3" class="title-line"></h1>
+            
             <h2 id="subtitle-line" class="subtitle"></h2>
+            
             <img src="admit-one.png" id="ticket" class="ticket" alt="Admit One" style="width: 260px; margin-top: 40px;">
         </div>
         <div id="photo" class="photo-container">
@@ -53,20 +91,37 @@
         async function typeWords(elementId, text, speed) {
             const element = document.getElementById(elementId);
             const words = text.split(" ");
-            for (let word of words) {
+            for (let wordText of words) {
                 const span = document.createElement("span");
-                span.textContent = word;
+                span.textContent = wordText;
                 span.className = "word";
                 element.appendChild(span);
+                await new Promise(res => setTimeout(res, 50));
+                span.classList.add("visible");
                 await new Promise(res => setTimeout(res, speed));
             }
         }
 
         window.onload = async () => {
-            await typeWords("title-line", "WELCOME TO MY PORTFOLIO", 400);
-            await typeWords("subtitle-line", "THE GRANDEST SHOW OF STRATEGY AND DESIGN.", 300);
-            document.getElementById("ticket").classList.add("reveal");
-            document.getElementById("photo").classList.add("reveal");
+            // Linha 1: WELCOME
+            await typeWords("line1", "WELCOME,", 600);
+            
+            // Linha 2: WELCOME TO MY
+            await typeWords("line2", "WELCOME TO MY", 400);
+
+            // Linha 3: PORTFOLIO
+            await typeWords("line3", "PORTFOLIO", 600);
+            
+            await new Promise(res => setTimeout(res, 400));
+            
+            // Subtítulo
+            await typeWords("subtitle-line", "THE GRANDEST SHOW OF STRATEGY AND DESIGN ON LAND OR BY SCREEN.", 200);
+            
+            // Revela a imagem e o ticket
+            setTimeout(() => {
+                document.getElementById("ticket").classList.add("reveal");
+                document.getElementById("photo").classList.add("reveal");
+            }, 600);
         };
     </script>
 </body>
