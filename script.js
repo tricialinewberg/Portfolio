@@ -22,8 +22,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     await typeWords("subtitle-line", "THE GRANDEST SHOW OF STRATEGY AND DESIGN ON LAND OR BY SCREEN.", 300);
 
     // 3. Mostra o Botão e a Foto
-    setTimeout(() => {
-        document.getElementById("ticket").classList.add("reveal-final");
-        document.querySelector(".photo-container").classList.add("reveal-final");
-    }, 500);
-});
+   // Primeiro revela a foto
+            setTimeout(() => {
+                document.getElementById("photo").classList.add("reveal");
+            }, 500);
+
+            // Dois segundos depois, revela o ingresso
+            setTimeout(() => {
+                document.getElementById("ticket").classList.add("reveal");
+            }, 2500); 
+        };
